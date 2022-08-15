@@ -58,7 +58,7 @@ class TabletBody extends StatelessWidget {
                     ),
                     VerticalDivider(indent: tabletBodyPaddingMap["left"]!, endIndent: 60.0),
                     Flexible(
-                      child: profileItem(),
+                      child: largePanelElement(tabletBodyPaddingMap),
                     )
                   ],
                 ),

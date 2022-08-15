@@ -5,7 +5,7 @@ import '../../model/dimensions.dart';
 Widget smallPanelElements() {
   return ListView.separated(
       controller: ScrollController(),
-      separatorBuilder: (context, index) => smallPanelSeperator(context),
+      separatorBuilder: (context, index) => smallPanelSeperator(),
       itemCount: 3,
       shrinkWrap: true,
       scrollDirection: Axis.vertical,
@@ -23,7 +23,7 @@ Widget smallPanelElements() {
       });
 }
 
-Column smallPanelSeperator(BuildContext context) {
+Column smallPanelSeperator() {
   return Column(
     children: [
       const SizedBox(height: 40.0),
@@ -72,7 +72,7 @@ Text panelTitle(text) {
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w400, fontSize: 20.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w500, fontSize: 20.0, letterSpacing: 2.1),
   );
 }
 
@@ -82,7 +82,7 @@ Text panelSubTitle(text) {
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w400, fontSize: 12.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w500, fontSize: 12.0, letterSpacing: 2.1),
   );
 }
 
