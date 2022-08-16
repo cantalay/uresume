@@ -13,10 +13,8 @@ class ResponsiveLayout extends StatelessWidget {
     return LayoutBuilder(builder: (contex, constraints) {
       if (constraints.maxWidth < mobileWidth) {
         return mobileBody;
-      } else if (constraints.maxWidth < tabletWidth) {
-        return tabletBody;
       } else {
-        return desktopBody;
+        return Center(child: Container(constraints: const BoxConstraints(maxWidth: maxHeaderSize),child: tabletBody,));
       }
     });
   }

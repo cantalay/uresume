@@ -6,18 +6,18 @@ Widget smallPanelElements() {
   return ListView.separated(
       controller: ScrollController(),
       separatorBuilder: (context, index) => smallPanelSeperator(),
-      itemCount: 3,
+      itemCount: userDetailMap.length,
       shrinkWrap: true,
       scrollDirection: Axis.vertical,
       itemBuilder: (context, index) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            panelTitle("this is main title".toUpperCase()),
+            panelTitle(userDetailMap[index].keys.toList().first),
             const SizedBox(
               height: 20.0,
             ),
-            smallPanelList(),
+            smallPanelList(userDetailMap[index][userDetailMap[index].keys.toList().first]),
           ],
         );
       });
@@ -35,27 +35,27 @@ Column smallPanelSeperator() {
   );
 }
 
-ListView smallPanelList() {
+ListView smallPanelList(detail) {
   return ListView.separated(
       physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (context, index) => const SizedBox(height: 15.0),
-      itemCount: 2,
+      itemCount: detail.length,
       shrinkWrap: true,
       itemBuilder: (context, index) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            panelSubTitle("this is small title".toUpperCase()),
+            panelSubTitle(detail[index]['title'].toUpperCase()),
             const SizedBox(
               height: 5.0,
             ),
             ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: 2,
+              itemCount: detail[index]['detail'].length,
               shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return panelText("this is small text detail");
+              itemBuilder: (context, innerIndex) {
+                return panelText(detail[index]['detail'][innerIndex]);
               },
               separatorBuilder: (context, index) => const SizedBox(
                 height: 5.0,
@@ -68,7 +68,7 @@ ListView smallPanelList() {
 
 Text panelTitle(text) {
   return Text(
-    text,
+    text.toString().toUpperCase(),
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
@@ -78,7 +78,7 @@ Text panelTitle(text) {
 
 Text panelSubTitle(text) {
   return Text(
-    text,
+    text.toString().toUpperCase(),
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(

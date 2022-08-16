@@ -17,26 +17,23 @@ class TabletBody extends StatelessWidget {
         backgroundColor: Colors.white70,
         body: Column(
           children: [
-            Container(
-              constraints: BoxConstraints(maxWidth: maxHeaderSize),
-              child: Padding(
-                padding: EdgeInsets.only(
-                    top: tabletBodyPaddingMap["top"]!,
-                    left: tabletBodyPaddingMap["left"]!,
-                    right: tabletBodyPaddingMap["right"]!,
-                    bottom: tabletBodyPaddingMap["bottom"]!),
-                child: AspectRatio(
-                  aspectRatio: tabletAspectRatio,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: headerTitle(context, 40.0, 15.0),
-                      ),
-                      Expanded(
-                        child: headerInfoItems(context),
-                      ),
-                    ],
-                  ),
+            Padding(
+              padding: EdgeInsets.only(
+                  top: tabletBodyPaddingMap["top"]!,
+                  left: tabletBodyPaddingMap["left"]!,
+                  right: tabletBodyPaddingMap["right"]!,
+                  bottom: tabletBodyPaddingMap["bottom"]!),
+              child: AspectRatio(
+                aspectRatio: tabletAspectRatio,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: headerTitle(context, 40.0, 15.0),
+                    ),
+                    Expanded(
+                      child: headerInfoItems(context),
+                    ),
+                  ],
                 ),
               ),
             ),
