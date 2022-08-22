@@ -47,6 +47,7 @@ ListView smallPanelList(detail) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             panelSubTitle(detail[index]['title'].toUpperCase()),
+            panelText(detail[index]['subtitle'].toUpperCase()),
             const SizedBox(
               height: 5.0,
             ),
