@@ -83,7 +83,7 @@ class _expandableMobileViewState extends State<expandableMobileView> {
       children: [ExpansionPanel(
           headerBuilder: (BuildContext context, bool isExpanded) {
             return ListTile(
-              title: Text("Introduction and Experience",style: TextStyle(fontSize: 25)),
+              title: panelSliderTitle("Introduction and Experience"),
             );
           },
           body: largePanelElement(mobileBodyPaddingMap),
@@ -91,7 +91,7 @@ class _expandableMobileViewState extends State<expandableMobileView> {
         ),ExpansionPanel(
         headerBuilder: (BuildContext context, bool isExpanded) {
           return ListTile(
-            title: Text("Education and Skills",style: TextStyle(fontSize: 25)),
+            title: panelSliderTitle("Education and Skills"),
           );
         },
         body: Padding(

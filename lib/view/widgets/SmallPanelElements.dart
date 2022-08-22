@@ -95,3 +95,13 @@ Text panelText(text) {
         fontWeight: FontWeight.w300, fontSize: 12.0, letterSpacing: 2.1),
   );
 }
+
+Text panelSliderTitle(text) {
+  return Text(
+    text.toString().toUpperCase(),
+    overflow: TextOverflow.visible,
+    textAlign: TextAlign.start,
+    style: GoogleFonts.montserrat(
+        fontWeight: FontWeight.w500, fontSize: 25.0, letterSpacing: 2.1),
+  );
+}
