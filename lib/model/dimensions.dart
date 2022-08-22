@@ -6,8 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const double mobileWidth = 900.0;
 const double tabletWidth = 1300.0;
-const double maxHeaderSize = 1450.0;
-const double maxMobileHeaderSize = 550.0;
+const double maxHeaderSize = 1300.0;
+const double maxMobileHeaderSize = 650.0;
 const double infoTextMediumSize = 1200.0;
 const double infoTextLargerSize = 1750.0;
 const double tabletAspectRatio = 4 / 1;

@@ -11,7 +11,7 @@ Column headerTitle(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Flex(
-        direction: MediaQuery.of(context).size.width > 900.0
+        direction: MediaQuery.of(context).size.width > 1000.0
             ? Axis.horizontal
             : Axis.vertical,
         mainAxisAlignment: MainAxisAlignment.start,

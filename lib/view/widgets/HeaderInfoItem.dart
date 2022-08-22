@@ -10,9 +10,6 @@ GridView headerInfoItems(BuildContext context) {
   if (currentWidth > infoTextMediumSize.toDouble()) {
     crossAxisCount = 3;
   }
-  if (currentWidth > infoTextLargerSize.toDouble()) {
-    crossAxisCount = 4;
-  }
   return GridView.builder(
       primary: true,
       shrinkWrap: true,

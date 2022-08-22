@@ -13,6 +13,7 @@ class TabletBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var currentWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white70,
         body: Column(
@@ -21,13 +22,13 @@ class TabletBody extends StatelessWidget {
               padding: EdgeInsets.only(
                   top: tabletBodyPaddingMap["top"]!,
                   left: tabletBodyPaddingMap["left"]!,
-                  right: tabletBodyPaddingMap["right"]!,
-                  bottom: tabletBodyPaddingMap["bottom"]!),
+                  right: tabletBodyPaddingMap["right"]!),
               child: AspectRatio(
                 aspectRatio: tabletAspectRatio,
                 child: Row(
                   children: [
-                    Expanded(
+                    Container(
+                      width: currentWidth < maxHeaderSize ?currentWidth * 0.33 : maxHeaderSize * 0.33,
                       child: headerTitle(context, 40.0, 15.0),
                     ),
                     Expanded(
@@ -49,7 +50,7 @@ class TabletBody extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.33,
+                      width: currentWidth < maxHeaderSize ?currentWidth * 0.30 : maxHeaderSize * 0.30,
                       alignment: Alignment.topLeft,
                       child: smallPanelElements(),
                     ),

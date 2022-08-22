@@ -24,6 +24,7 @@ Widget largePanelElement(Map<String, double> paddingMap) {
   return Padding(
     padding: EdgeInsets.only(top: paddingMap['top']!, right: paddingMap['right']!, left: paddingMap['left']!, bottom: paddingMap['bottom']!),
     child: ListView(
+      shrinkWrap: true,
       controller: ScrollController(),
       children: [
         profileItem(),
