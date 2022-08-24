@@ -20,10 +20,16 @@ class MyApp extends StatelessWidget {
         title: pageTitle,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          textTheme: TextTheme(bodyText2: GoogleFonts.montserrat())
-        ),
+            textTheme: TextTheme(bodyText2: GoogleFonts.montserrat())),
         home: Scaffold(
-          body: SafeArea(child: ResponsiveLayout(const MobileBody(), const DesktopBody(), const TabletBody())),
+          body: SafeArea(
+              child: Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('background.png'),
+                          fit: BoxFit.cover)),
+                  child: ResponsiveLayout(const MobileBody(),
+                      const DesktopBody(), const TabletBody()))),
         ));
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/rendering.dart';
 import 'package:uresume/model/dimensions.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:uresume/view/widgets/ProfileDescription.dart';
 
 import '../widgets/HeaderInfoItem.dart';
@@ -19,20 +18,28 @@ class TabletBody extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.white38,
               expandedHeight: 250.0,
               toolbarHeight: 150.0,
               floating: true,
               pinned: false,
               flexibleSpace: FlexibleSpaceBar(
-                titlePadding: EdgeInsets.only(left: tabletBodyPaddingMap["left"]!),
+                titlePadding:
+                    EdgeInsets.only(left: tabletBodyPaddingMap["left"]!),
                 expandedTitleScale: 1,
                 title: Container(
                   child: headerTitle(context, 40.0, 15.0),
-                ),background: Padding(
+                ),
+                background: Padding(
                   padding: EdgeInsets.only(
-                    right: tabletBodyPaddingMap["right"]!,),
-                  child: Row(children: [Expanded(child: SizedBox(),),Expanded(child: headerInfoItems(context))]),
+                    right: tabletBodyPaddingMap["right"]!,
+                  ),
+                  child: Row(children: [
+                    Expanded(
+                      child: SizedBox(),
+                    ),
+                    Expanded(child: headerInfoItems(context))
+                  ]),
                 ),
               ),
             ),
