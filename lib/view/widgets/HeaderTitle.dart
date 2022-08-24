@@ -13,7 +13,7 @@ Column headerTitle(
       Flex(
         direction: MediaQuery.of(context).size.width > 1000.0
             ? Axis.horizontal
-            : Axis.vertical,
+            : Axis.horizontal,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,6 +22,7 @@ Column headerTitle(
             style: GoogleFonts.montserrat(
                 fontWeight: FontWeight.w500,
                 fontSize: nameFontSize,
+                color: Colors.black,
                 letterSpacing: 2.1),
           ),
           const SizedBox(
@@ -30,6 +31,7 @@ Column headerTitle(
           Text(userInfo['surname'].toString().toUpperCase(),
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w300,
+                  color: Colors.black,
                   fontSize: nameFontSize,
                   letterSpacing: 2.1)),
         ],
@@ -40,6 +42,7 @@ Column headerTitle(
       Text(userInfo['title'].toString().toUpperCase(),
           style: GoogleFonts.montserrat(
               fontWeight: FontWeight.w200,
+              color: Colors.black,
               fontSize: titleFontSize,
               letterSpacing: 2.1)),
       if (MediaQuery.of(context).size.width > 100.0) ...[

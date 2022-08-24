@@ -7,9 +7,6 @@ import '../../model/dimensions.dart';
 GridView headerInfoItems(BuildContext context) {
   double currentWidth = MediaQuery.of(context).size.width;
   int crossAxisCount = 2;
-  if (currentWidth > infoTextMediumSize.toDouble()) {
-    crossAxisCount = 3;
-  }
   return GridView.builder(
       primary: true,
       shrinkWrap: true,
@@ -20,7 +17,7 @@ GridView headerInfoItems(BuildContext context) {
           mainAxisExtent: 40),
       itemCount: infoItems.length,
       itemBuilder: (contex, index) {
-        return MediaQuery.of(context).size.width > mobileWidth ? headerTextInfo(
+        return currentWidth > mobileWidth ? headerTextInfo(
             infoItems[infoItems.keys.toList()[index]]['text'],
             infoItems[infoItems.keys.toList()[index]]['icon'],
             infoItems.keys.toList()[index]) :

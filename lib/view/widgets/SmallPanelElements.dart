@@ -73,7 +73,7 @@ Text panelTitle(text) {
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w500, fontSize: 20.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w600, fontSize: 20.0, letterSpacing: 2.1),
   );
 }
 
@@ -83,7 +83,7 @@ Text panelSubTitle(text) {
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w500, fontSize: 12.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w700, fontSize: 12.0, letterSpacing: 2.1),
   );
 }
 
@@ -92,7 +92,7 @@ Text panelText(text) {
     text,
     overflow: TextOverflow.visible,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w300, fontSize: 12.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w500, fontSize: 12.0, letterSpacing: 2.1),
   );
 }
 

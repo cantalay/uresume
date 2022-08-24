@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //// set the common dimensions
-
+const String pageTitle = "Can Talay";
 const double mobileWidth = 900.0;
 const double tabletWidth = 1300.0;
 const double maxHeaderSize = 1300.0;
@@ -79,14 +79,16 @@ const Map<String, String> userInfo = {
   "surname": "Talay",
   "title": "FULLSTACK SOFTWARE developer"
 };
-String profileDescription = Faker().lorem.sentences(5).join().toString();
+String profileDescription = "The passion for software development started in 2008 when he was still a high school student. "
+    "It started with JavaScript (mostly by playing video games) and he continue to do this passion in professional business life. "
+    "Dynamic and creative software developer with over 2 years of experience in producing robust code for high-volume companies.";
 List userExperience = [
   {
     "name": "Comodo Cybersecurity",
     "position": "Fullstack Software Developer",
     "startYear": 2020,
     "endYear": "Current",
-    "detail": Faker().lorem.sentences(2).join().toString(),
+    "detail": "Experience in cybersecurity projects like iTarian, Socaap, Dragon Platform and Enterprise Platform as a fullstack software engineer. ",
     "knowledges": [
       "AWS Lambda Functions and Serverless Architecture",
       "Google Cloud Platform, Cloud Build, Google Storage",
@@ -100,11 +102,11 @@ List userExperience = [
     "position": "Fullstack Software Developer",
     "startYear": 2019,
     "endYear": 2020,
-    "detail": Faker().lorem.sentences(2).join().toString(),
+    "detail": "Experience in  embedded, microprocessors development.",
     "knowledges": [
-      "ESP32, ESP8266, Nordic Semiconductor NRF52XX Microcontroller Programming",
+      "Developed ESP32, ESP8266, Nordic Semiconductor NRF52XX Microcontroller",
       "Production Management",
-      "Building BLE Mesh Network for Lighting"
+      "Developed BLE Mesh Network for Lighting"
     ]
   },
   {
@@ -112,16 +114,16 @@ List userExperience = [
     "position": "Development Intern",
     "startYear": 2018,
     "endYear": 2018,
-    "detail": Faker().lorem.sentences(2).join().toString(),
-    "knowledges": ["Python, Numpy and Scipy for Statistical Analysis"]
+    "detail": "Experience in simulation and statistical analysis of furniture testing machines.",
+    "knowledges": ["Python, Numpy and Scipy for Statistical Analysis", "Decreased furniture testing machines with time study."]
   },
   {
     "name": "Turkish Standards Institution",
     "position": "Production Management Intern",
     "startYear": 2018,
     "endYear": 2018,
-    "detail": Faker().lorem.sentences(2).join().toString(),
-    "knowledges": ["Building a Production Line and Analysing"]
+    "detail": "Experience in simulation and statistical analysis of production line.",
+    "knowledges": ["Python, Numpy and Scipy for Statistical Analysis","Decreased troduction line productivity with time study."]
   }
 ];
 

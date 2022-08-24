@@ -13,9 +13,7 @@ Column profileItem() {
       SizedBox(
         height: 20.0,
       ),
-      Text(profileDescription,
-          style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.w300, fontSize: 12.0, letterSpacing: 2.1))
+      panelText(profileDescription)
     ],
   );
 }
@@ -101,6 +99,6 @@ Text panelSubTitleText(text) {
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w300, fontSize: 12.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w500, fontSize: 12.0, letterSpacing: 2.1),
   );
 }

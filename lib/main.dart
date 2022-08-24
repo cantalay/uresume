@@ -1,3 +1,4 @@
+import 'package:uresume/model/dimensions.dart';
 import 'package:uresume/view/responsive_views/DesktopBody.dart';
 import 'package:uresume/view/responsive_views/TabletBody.dart';
 import 'package:uresume/view/responsive_views/MobileBody.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: pageTitle,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           textTheme: TextTheme(bodyText2: GoogleFonts.montserrat())

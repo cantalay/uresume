@@ -16,32 +16,30 @@ class TabletBody extends StatelessWidget {
     var currentWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Colors.white70,
-        body: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                  top: tabletBodyPaddingMap["top"]!,
-                  left: tabletBodyPaddingMap["left"]!,
-                  right: tabletBodyPaddingMap["right"]!),
-              child: AspectRatio(
-                aspectRatio: tabletAspectRatio,
-                child: Row(
-                  children: [
-                    Container(
-                      width: currentWidth < maxHeaderSize ?currentWidth * 0.33 : maxHeaderSize * 0.33,
-                      child: headerTitle(context, 40.0, 15.0),
-                    ),
-                    Expanded(
-                      child: headerInfoItems(context),
-                    ),
-                  ],
+        body: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              backgroundColor: Colors.white,
+              expandedHeight: 250.0,
+              toolbarHeight: 150.0,
+              floating: true,
+              pinned: false,
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding: EdgeInsets.only(left: tabletBodyPaddingMap["left"]!),
+                expandedTitleScale: 1,
+                title: Container(
+                  child: headerTitle(context, 40.0, 15.0),
+                ),background: Padding(
+                  padding: EdgeInsets.only(
+                    right: tabletBodyPaddingMap["right"]!,),
+                  child: Row(children: [Expanded(child: SizedBox(),),Expanded(child: headerInfoItems(context))]),
                 ),
               ),
             ),
-            const Divider(indent: 60.0, endIndent: 60.0),
-            Expanded(
+            SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.only(top: tabletBodyPaddingMap["left"]!,
+                padding: EdgeInsets.only(
+                    top: tabletBodyPaddingMap["left"]!,
                     left: tabletBodyPaddingMap["left"]!,
                     right: tabletBodyPaddingMap["right"]!,
                     bottom: tabletBodyPaddingMap["bottom"]!),
@@ -50,19 +48,79 @@ class TabletBody extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: currentWidth < maxHeaderSize ?currentWidth * 0.30 : maxHeaderSize * 0.30,
+                      width: currentWidth < maxHeaderSize
+                          ? currentWidth * 0.30
+                          : maxHeaderSize * 0.30,
                       alignment: Alignment.topLeft,
                       child: smallPanelElements(),
                     ),
-                    VerticalDivider(indent: tabletBodyPaddingMap["left"]!, endIndent: 60.0),
+                    VerticalDivider(
+                        indent: tabletBodyPaddingMap["left"]!, endIndent: 60.0),
                     Flexible(
                       child: largePanelElement(tabletBodyPaddingMap),
                     )
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ));
+  }
+
+  Column oldmain(double currentWidth, BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(
+              top: tabletBodyPaddingMap["top"]!,
+              left: tabletBodyPaddingMap["left"]!,
+              right: tabletBodyPaddingMap["right"]!),
+          child: AspectRatio(
+            aspectRatio: tabletAspectRatio,
+            child: Row(
+              children: [
+                Container(
+                  width: currentWidth < maxHeaderSize
+                      ? currentWidth * 0.33
+                      : maxHeaderSize * 0.33,
+                  child: headerTitle(context, 40.0, 15.0),
+                ),
+                Expanded(
+                  child: headerInfoItems(context),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const Divider(indent: 60.0, endIndent: 60.0),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(
+                top: tabletBodyPaddingMap["left"]!,
+                left: tabletBodyPaddingMap["left"]!,
+                right: tabletBodyPaddingMap["right"]!,
+                bottom: tabletBodyPaddingMap["bottom"]!),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: currentWidth < maxHeaderSize
+                      ? currentWidth * 0.30
+                      : maxHeaderSize * 0.30,
+                  alignment: Alignment.topLeft,
+                  child: smallPanelElements(),
+                ),
+                VerticalDivider(
+                    indent: tabletBodyPaddingMap["left"]!, endIndent: 60.0),
+                Flexible(
+                  child: largePanelElement(tabletBodyPaddingMap),
+                )
+              ],
+            ),
+          ),
+        )
+      ],
+    );
   }
 }
