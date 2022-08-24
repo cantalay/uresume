@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const String pageTitle = "Can Talay";
 const double mobileWidth = 900.0;
 const double tabletWidth = 1300.0;
-const double maxHeaderSize = 1300.0;
+const double maxHeaderSize = 1000.0;
 const double maxMobileHeaderSize = 650.0;
 const double infoTextMediumSize = 1200.0;
 const double infoTextLargerSize = 1750.0;
@@ -59,19 +59,23 @@ Map<String, IconData> skillItems = {
 };
 
 Map<String, dynamic> infoItems = {
-  "Address": {"text": "TR - ANKARA", "icon": FontAwesomeIcons.house},
+  "Address": {"text": "TR - ANKARA", "icon": FontAwesomeIcons.house,
+    'uri':{'https': 'goo.gl/maps/DyxELEpRQkyEmNvz8'}
+  },
   "Phone Number": {
     "text": "+90 507 329 0916",
-    "icon": FontAwesomeIcons.mobileScreenButton
+    "icon": FontAwesomeIcons.mobileScreenButton,
+'uri':{'tel': "+905073290916"}
   },
   "Email Address": {
     "text": "cantalay0@gmail.com",
-    "icon": FontAwesomeIcons.envelope
+    "icon": FontAwesomeIcons.envelope,
+'uri':{'email':'cantalay0@gmail.com'}
   },
-  "Linkedin": {"text": "@cantalay", "icon": FontAwesomeIcons.linkedin},
-  "Github": {"text": "@cantalay", "icon": FontAwesomeIcons.github},
+  "Linkedin": {"text": "@cantalay", "icon": FontAwesomeIcons.linkedin, 'uri':{'https':'www.linkedin.com/in/can-talay-45110659/'}},
+  "Github": {"text": "@cantalay", "icon": FontAwesomeIcons.github, 'uri':{'https':'www.github.com/cantalay'}},
   "Gitlab": {"text": "@cantalay", "icon": FontAwesomeIcons.gitlab},
-  "gender": {"text": "Male", "icon": FontAwesomeIcons.mars},
+  "Gender": {"text": "Male", "icon": FontAwesomeIcons.mars},
 };
 
 const Map<String, String> userInfo = {

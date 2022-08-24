@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../model/dimensions.dart';
 
@@ -20,7 +21,9 @@ GridView headerInfoItems(BuildContext context) {
         return currentWidth > mobileWidth ? headerTextInfo(
             infoItems[infoItems.keys.toList()[index]]['text'],
             infoItems[infoItems.keys.toList()[index]]['icon'],
-            infoItems.keys.toList()[index]) :
+            infoItems.keys.toList()[index],
+          infoItems[infoItems.keys.toList()[index]].length > 2 ? infoItems[infoItems.keys.toList()[index]]['uri'] : null
+        ) :
         mobileHeaderTextInfo(
             infoItems[infoItems.keys.toList()[index]]['text'],
             infoItems[infoItems.keys.toList()[index]]['icon'],
@@ -29,12 +32,21 @@ GridView headerInfoItems(BuildContext context) {
 }
 
 
-Row headerTextInfo(String infoTitle, IconData infoIcon, String infoName) {
+Row headerTextInfo(String infoTitle, IconData infoIcon, String infoName, uriElement) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.end,
     children: [
       Flexible(
-        child: Text(
+        child: uriElement != null ? TextButton(
+          onPressed: () => launchUrl(Uri(scheme: uriElement.keys.toList()[0], path: uriElement[uriElement.keys.toList()[0]])) ,
+          child: Text(
+            infoTitle,
+            overflow: TextOverflow.visible,
+            textAlign: TextAlign.end,
+            style: GoogleFonts.montserrat(
+                fontWeight: FontWeight.w400, fontSize: 15.0),
+          ),
+        ) : Text(
           infoTitle,
           overflow: TextOverflow.visible,
           textAlign: TextAlign.end,

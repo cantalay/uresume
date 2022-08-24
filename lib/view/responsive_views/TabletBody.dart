@@ -7,9 +7,14 @@ import '../widgets/HeaderInfoItem.dart';
 import '../widgets/HeaderTitle.dart';
 import '../widgets/SmallPanelElements.dart';
 
-class TabletBody extends StatelessWidget {
+class TabletBody extends StatefulWidget {
   const TabletBody({Key? key}) : super(key: key);
 
+  @override
+  State<TabletBody> createState() => _TabletBodyState();
+}
+
+class _TabletBodyState extends State<TabletBody> {
   @override
   Widget build(BuildContext context) {
     var currentWidth = MediaQuery.of(context).size.width;
@@ -18,9 +23,10 @@ class TabletBody extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: Colors.white38,
+              backgroundColor: Colors.white60,
               expandedHeight: 250.0,
               toolbarHeight: 150.0,
+              elevation: 0,
               floating: true,
               pinned: false,
               flexibleSpace: FlexibleSpaceBar(
