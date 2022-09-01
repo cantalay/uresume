@@ -70,7 +70,7 @@ Map<String, dynamic> infoItems = {
   "Email Address": {
     "text": "cantalay0@gmail.com",
     "icon": FontAwesomeIcons.envelope,
-'uri':{'email':'cantalay0@gmail.com'}
+'uri':{'mailto':'cantalay0@gmail.com'}
   },
   "Linkedin": {"text": "@cantalay", "icon": FontAwesomeIcons.linkedin, 'uri':{'https':'www.linkedin.com/in/can-talay-45110659/'}},
   "Github": {"text": "@cantalay", "icon": FontAwesomeIcons.github, 'uri':{'https':'www.github.com/cantalay'}},
