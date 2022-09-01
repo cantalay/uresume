@@ -68,20 +68,5 @@ class DesktopBody extends StatelessWidget {
         ));
   }
 
-  ListView resumeItemList() {
-    return ListView.builder(
-      controller: ScrollController(),
-      itemCount: resumeItems.length,
-      itemBuilder: (context, index) {
-        return Container(
-          height: 125.0,
-          child: Text(
-            resumeItems[index]['attributeName'].toString(),
-            style: GoogleFonts.montserrat(
-                fontWeight: FontWeight.bold, fontSize: 30.0),
-          ),
-        );
-      },
-    );
-  }
+
 }

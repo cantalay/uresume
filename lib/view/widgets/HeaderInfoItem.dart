@@ -27,7 +27,8 @@ GridView headerInfoItems(BuildContext context) {
         mobileHeaderTextInfo(
             infoItems[infoItems.keys.toList()[index]]['text'],
             infoItems[infoItems.keys.toList()[index]]['icon'],
-            infoItems.keys.toList()[index]);
+            infoItems.keys.toList()[index],
+            infoItems[infoItems.keys.toList()[index]].length > 2 ? infoItems[infoItems.keys.toList()[index]]['uri'] : null);
       });
 }
 
@@ -68,7 +69,7 @@ Row headerTextInfo(String infoTitle, IconData infoIcon, String infoName, uriElem
   );
 }
 
-Row mobileHeaderTextInfo(String infoTitle, IconData infoIcon, String infoName) {
+Row mobileHeaderTextInfo(String infoTitle, IconData infoIcon, String infoName, uriElement) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
@@ -82,12 +83,21 @@ Row mobileHeaderTextInfo(String infoTitle, IconData infoIcon, String infoName) {
       const SizedBox(
         width: 9.0,
       ),Flexible(
-        child: Text(
+        child:  uriElement != null ? TextButton(
+          onPressed: () => launchUrl(Uri(scheme: uriElement.keys.toList()[0], path: uriElement[uriElement.keys.toList()[0]])) ,
+          child: Text(
+            infoTitle,
+            overflow: TextOverflow.visible,
+            textAlign: TextAlign.end,
+            style: GoogleFonts.montserrat(
+                fontWeight: FontWeight.w500, fontSize: 12.0),
+          ),
+        ): Text(
           infoTitle,
           overflow: TextOverflow.visible,
           textAlign: TextAlign.end,
           style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.w400, fontSize: 10.0),
+              fontWeight: FontWeight.w500, fontSize: 12.0),
         ),
       )
     ],

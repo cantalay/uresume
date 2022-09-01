@@ -22,90 +22,50 @@ class MobileBody extends StatelessWidget {
       aspectRatio = maxiMobileAspectRatio;
     }
     return Scaffold(
-        backgroundColor: Colors.white70,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              constraints: BoxConstraints(maxWidth: maxMobileHeaderSize),
-              child: Padding(
-                padding: EdgeInsets.only(
-                    top: mobileBodyPaddingMap["top"]!,
-                    left: mobileBodyPaddingMap["left"]!,
-                    right: mobileBodyPaddingMap["right"]!,
-                    bottom: mobileBodyPaddingMap["bottom"]!),
-                child: AspectRatio(
-                  aspectRatio: aspectRatio,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: headerTitle(context, 35.0, 12.0),
-                      ),
-                      Expanded(
-                        child: headerInfoItems(context),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+      backgroundColor: Colors.white70,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Color.fromRGBO(189, 224, 254, 0.8),
+            expandedHeight: 200.0,
+            toolbarHeight: 150.0,
+            elevation: 0,
+            floating: true,
+            pinned: false,
+            flexibleSpace: FlexibleSpaceBar(
+              titlePadding: EdgeInsets.only(
+                  left: mobileBodyPaddingMap['left']!,
+                  right: mobileBodyPaddingMap['right']!),
+              expandedTitleScale: 1,
+              title: headerTitle(context, 35.0, 12.0),
             ),
-            const Divider(indent: 60.0, endIndent: 60.0),
-
-            Expanded(child: ListView(shrinkWrap: true, primary: false,children: [expandableMobileView()])),
-            const Divider(indent: 60.0, endIndent: 60.0),
-
-          ],
-        ));
+          ),
+          SliverToBoxAdapter(
+            child: ListView(shrinkWrap: true, primary: false, children: [
+              SizedBox(height: 20.0,),
+              Padding(
+                padding: EdgeInsets.only(
+                    left: mobileBodyPaddingMap['left']!,
+                    right: mobileBodyPaddingMap['right']!,
+                    top: mobileBodyPaddingMap['top']!,
+                    bottom: mobileBodyPaddingMap['bottom']!),
+                child: headerInfoItems(context),
+              ),
+              smallPanelSeperator(),
+              largePanelElement(mobileBodyPaddingMap),
+              smallPanelSeperator(),
+              Padding(
+                padding: EdgeInsets.only(
+                    left: mobileBodyPaddingMap['left']!,
+                    right: mobileBodyPaddingMap['right']!,
+                    top: mobileBodyPaddingMap['top']!,
+                    bottom: mobileBodyPaddingMap['bottom']!),
+                child: smallPanelElements(),
+              ),smallPanelSeperator(),
+            ]),
+          )
+        ],
+      ),
+    );
   }
 }
-class expandableMobileView extends StatefulWidget {
-  const expandableMobileView({Key? key}) : super(key: key);
-
-  @override
-  State<expandableMobileView> createState() => _expandableMobileViewState();
-}
-
-class _expandableMobileViewState extends State<expandableMobileView> {
-  bool isExperienceExpanded = true;
-  bool isEducationExpanded = true;
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          if(index == 0){
-            isExperienceExpanded = !isExperienceExpanded;
-          }else{
-            isEducationExpanded = !isEducationExpanded;
-          }
-        });
-      },
-      children: [ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return ListTile(
-              title: panelSliderTitle("Introduction and Experience"),
-            );
-          },
-          body: largePanelElement(mobileBodyPaddingMap),
-          isExpanded: isExperienceExpanded,
-        ),ExpansionPanel(
-        headerBuilder: (BuildContext context, bool isExpanded) {
-          return ListTile(
-            title: panelSliderTitle("Education and Skills"),
-          );
-        },
-        body: Padding(
-          padding: EdgeInsets.only(
-              top: mobileBodyPaddingMap["top"]!,
-              left: mobileBodyPaddingMap["left"]!,
-              right: mobileBodyPaddingMap["right"]!,
-              bottom: mobileBodyPaddingMap["bottom"]!),
-          child: smallPanelElements(),
-        ),
-        isExpanded: isEducationExpanded,
-      ),]
-      ,
-    );;
-  }
-}
-

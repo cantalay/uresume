@@ -20,7 +20,11 @@ Column profileItem() {
 
 Widget largePanelElement(Map<String, double> paddingMap) {
   return Padding(
-    padding: EdgeInsets.only(top: paddingMap['top']!, right: paddingMap['right']!, left: paddingMap['left']!, bottom: paddingMap['bottom']!),
+    padding: EdgeInsets.only(
+        top: paddingMap['top']!,
+        right: paddingMap['right']!,
+        left: paddingMap['left']!,
+        bottom: paddingMap['bottom']!),
     child: ListView(
       shrinkWrap: true,
       controller: ScrollController(),
@@ -63,17 +67,34 @@ ListView largePanelElementList() {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             panelSubTitle(userExperience[index]['name']),
-            SizedBox(height: 5.0,),
+            SizedBox(
+              height: 5.0,
+            ),
             Row(children: [
               panelSubTitleText(userExperience[index]['position']),
               SizedBox(
                 width: 5.0,
               ),
-              panelSubTitleText(userExperience[index]['startYear'].toString() + " - " + userExperience[index]['endYear'].toString())
+              MediaQuery.of(context).size.width > 900
+                  ? panelSubTitleText(
+                      userExperience[index]['startYear'].toString() +
+                          " - " +
+                          userExperience[index]['endYear'].toString())
+                  : SizedBox()
             ]),
             const SizedBox(
               height: 5.0,
-            ),panelText(userExperience[index]['detail']),
+            ),
+            MediaQuery.of(context).size.width < 900
+                ? panelSubTitleText(
+                    userExperience[index]['startYear'].toString() +
+                        " - " +
+                        userExperience[index]['endYear'].toString())
+                : SizedBox(),
+            const SizedBox(
+              height: 8.0,
+            ),
+            panelText(userExperience[index]['detail']),
             const SizedBox(
               height: 8.0,
             ),
@@ -82,7 +103,8 @@ ListView largePanelElementList() {
               itemCount: userExperience[index]['knowledges'].length,
               shrinkWrap: true,
               itemBuilder: (context, innerIndex) {
-                return panelText("• " + userExperience[index]['knowledges'][innerIndex]);
+                return panelText(
+                    "• " + userExperience[index]['knowledges'][innerIndex]);
               },
               separatorBuilder: (context, index) => const SizedBox(
                 height: 2.0,
@@ -96,8 +118,7 @@ ListView largePanelElementList() {
 Text panelSubTitleText(text) {
   return Text(
     text.toString().toUpperCase(),
-    overflow: TextOverflow.visible,
-    textAlign: TextAlign.start,
+    overflow: TextOverflow.fade,
     style: GoogleFonts.montserrat(
         fontWeight: FontWeight.w500, fontSize: 12.0, letterSpacing: 2.1),
   );

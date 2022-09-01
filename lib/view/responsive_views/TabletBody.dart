@@ -23,7 +23,7 @@ class _TabletBodyState extends State<TabletBody> {
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              backgroundColor: Colors.white60,
+              backgroundColor: Color.fromRGBO(189, 224, 254, 0.8),
               expandedHeight: 250.0,
               toolbarHeight: 150.0,
               elevation: 0,
