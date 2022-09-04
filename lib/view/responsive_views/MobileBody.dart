@@ -1,7 +1,5 @@
-import 'package:faker/faker.dart';
-import 'package:uresume/model/dimensions.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:uresume/model/dimensions.dart';
 import 'package:uresume/view/widgets/HeaderTitle.dart';
 import 'package:uresume/view/widgets/SmallPanelElements.dart';
 
@@ -13,14 +11,6 @@ class MobileBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double aspectRatio = 0.0;
-    if (MediaQuery.of(context).size.width < 300) {
-      aspectRatio = miniMobileAspectRatio;
-    } else if (MediaQuery.of(context).size.width < 500) {
-      aspectRatio = mobileAspectRatio;
-    } else {
-      aspectRatio = maxiMobileAspectRatio;
-    }
     return Scaffold(
       backgroundColor: Colors.white70,
       body: CustomScrollView(
@@ -42,7 +32,9 @@ class MobileBody extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: ListView(shrinkWrap: true, primary: false, children: [
-              SizedBox(height: 20.0,),
+              SizedBox(
+                height: 20.0,
+              ),
               Padding(
                 padding: EdgeInsets.only(
                     left: mobileBodyPaddingMap['left']!,
@@ -61,7 +53,8 @@ class MobileBody extends StatelessWidget {
                     top: mobileBodyPaddingMap['top']!,
                     bottom: mobileBodyPaddingMap['bottom']!),
                 child: smallPanelElements(),
-              ),smallPanelSeperator(),
+              ),
+              smallPanelSeperator(),
             ]),
           )
         ],

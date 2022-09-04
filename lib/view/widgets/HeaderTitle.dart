@@ -50,11 +50,14 @@ Column headerTitle(
           height: MediaQuery.of(context).size.width > 900.0 ? 10.0 : 5.0,
         ),
         Row(
-          mainAxisAlignment: MediaQuery.of(context).size.width > 900.0 ? MainAxisAlignment.start : MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MediaQuery.of(context).size.width > 900.0
+              ? MainAxisAlignment.start
+              : MainAxisAlignment.spaceBetween,
           children: [
             for (var item in skillItems.keys.toList())
               Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
+                padding:
+                    const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
                 child: Tooltip(
                   child: Icon(
                     skillItems[item],

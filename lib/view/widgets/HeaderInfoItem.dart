@@ -14,46 +14,53 @@ GridView headerInfoItems(BuildContext context) {
       scrollDirection: Axis.vertical,
       physics: NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: crossAxisCount,
-          mainAxisExtent: 40),
+          crossAxisCount: crossAxisCount, mainAxisExtent: 40),
       itemCount: infoItems.length,
       itemBuilder: (contex, index) {
-        return currentWidth > mobileWidth ? headerTextInfo(
-            infoItems[infoItems.keys.toList()[index]]['text'],
-            infoItems[infoItems.keys.toList()[index]]['icon'],
-            infoItems.keys.toList()[index],
-          infoItems[infoItems.keys.toList()[index]].length > 2 ? infoItems[infoItems.keys.toList()[index]]['uri'] : null
-        ) :
-        mobileHeaderTextInfo(
-            infoItems[infoItems.keys.toList()[index]]['text'],
-            infoItems[infoItems.keys.toList()[index]]['icon'],
-            infoItems.keys.toList()[index],
-            infoItems[infoItems.keys.toList()[index]].length > 2 ? infoItems[infoItems.keys.toList()[index]]['uri'] : null);
+        return currentWidth > mobileWidth
+            ? headerTextInfo(
+                infoItems[infoItems.keys.toList()[index]]['text'],
+                infoItems[infoItems.keys.toList()[index]]['icon'],
+                infoItems.keys.toList()[index],
+                infoItems[infoItems.keys.toList()[index]].length > 2
+                    ? infoItems[infoItems.keys.toList()[index]]['uri']
+                    : null)
+            : mobileHeaderTextInfo(
+                infoItems[infoItems.keys.toList()[index]]['text'],
+                infoItems[infoItems.keys.toList()[index]]['icon'],
+                infoItems.keys.toList()[index],
+                infoItems[infoItems.keys.toList()[index]].length > 2
+                    ? infoItems[infoItems.keys.toList()[index]]['uri']
+                    : null);
       });
 }
 
-
-Row headerTextInfo(String infoTitle, IconData infoIcon, String infoName, uriElement) {
+Row headerTextInfo(
+    String infoTitle, IconData infoIcon, String infoName, uriElement) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.end,
     children: [
       Flexible(
-        child: uriElement != null ? TextButton(
-          onPressed: () => launchUrl(Uri(scheme: uriElement.keys.toList()[0], path: uriElement[uriElement.keys.toList()[0]])) ,
-          child: Text(
-            infoTitle,
-            overflow: TextOverflow.visible,
-            textAlign: TextAlign.end,
-            style: GoogleFonts.montserrat(
-                fontWeight: FontWeight.w400, fontSize: 15.0),
-          ),
-        ) : Text(
-          infoTitle,
-          overflow: TextOverflow.visible,
-          textAlign: TextAlign.end,
-          style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.w400, fontSize: 15.0),
-        ),
+        child: uriElement != null
+            ? TextButton(
+                onPressed: () => launchUrl(Uri(
+                    scheme: uriElement.keys.toList()[0],
+                    path: uriElement[uriElement.keys.toList()[0]])),
+                child: Text(
+                  infoTitle,
+                  overflow: TextOverflow.visible,
+                  textAlign: TextAlign.end,
+                  style: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.w400, fontSize: 15.0),
+                ),
+              )
+            : Text(
+                infoTitle,
+                overflow: TextOverflow.visible,
+                textAlign: TextAlign.end,
+                style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.w400, fontSize: 15.0),
+              ),
       ),
       const SizedBox(
         width: 18.0,
@@ -69,7 +76,8 @@ Row headerTextInfo(String infoTitle, IconData infoIcon, String infoName, uriElem
   );
 }
 
-Row mobileHeaderTextInfo(String infoTitle, IconData infoIcon, String infoName, uriElement) {
+Row mobileHeaderTextInfo(
+    String infoTitle, IconData infoIcon, String infoName, uriElement) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
@@ -82,23 +90,28 @@ Row mobileHeaderTextInfo(String infoTitle, IconData infoIcon, String infoName, u
       ),
       const SizedBox(
         width: 9.0,
-      ),Flexible(
-        child:  uriElement != null ? TextButton(
-          onPressed: () => launchUrl(Uri(scheme: uriElement.keys.toList()[0], path: uriElement[uriElement.keys.toList()[0]])) ,
-          child: Text(
-            infoTitle,
-            overflow: TextOverflow.visible,
-            textAlign: TextAlign.end,
-            style: GoogleFonts.montserrat(
-                fontWeight: FontWeight.w500, fontSize: 12.0),
-          ),
-        ): Text(
-          infoTitle,
-          overflow: TextOverflow.visible,
-          textAlign: TextAlign.end,
-          style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.w500, fontSize: 12.0),
-        ),
+      ),
+      Flexible(
+        child: uriElement != null
+            ? TextButton(
+                onPressed: () => launchUrl(Uri(
+                    scheme: uriElement.keys.toList()[0],
+                    path: uriElement[uriElement.keys.toList()[0]])),
+                child: Text(
+                  infoTitle,
+                  overflow: TextOverflow.visible,
+                  textAlign: TextAlign.end,
+                  style: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.w500, fontSize: 12.0),
+                ),
+              )
+            : Text(
+                infoTitle,
+                overflow: TextOverflow.visible,
+                textAlign: TextAlign.end,
+                style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.w500, fontSize: 12.0),
+              ),
       )
     ],
   );

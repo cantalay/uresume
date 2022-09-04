@@ -1,12 +1,11 @@
-import 'package:uresume/model/dimensions.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:uresume/model/dimensions.dart';
 
 class ResponsiveLayout extends StatelessWidget {
   final Widget mobileBody;
-  final Widget desktopBody;
   final Widget tabletBody;
 
-  ResponsiveLayout(this.mobileBody, this.desktopBody, this.tabletBody);
+  ResponsiveLayout(this.mobileBody, this.tabletBody);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,11 @@ class ResponsiveLayout extends StatelessWidget {
       if (constraints.maxWidth < mobileWidth) {
         return mobileBody;
       } else {
-        return Center(child: Container(constraints: const BoxConstraints(maxWidth: maxHeaderSize),child: tabletBody,));
+        return Center(
+            child: Container(
+          constraints: const BoxConstraints(maxWidth: maxHeaderSize),
+          child: tabletBody,
+        ));
       }
     });
   }

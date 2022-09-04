@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../model/dimensions.dart';
 
 Widget smallPanelElements() {
@@ -17,7 +18,8 @@ Widget smallPanelElements() {
             const SizedBox(
               height: 20.0,
             ),
-            smallPanelList(userDetailMap[index][userDetailMap[index].keys.toList().first]),
+            smallPanelList(
+                userDetailMap[index][userDetailMap[index].keys.toList().first]),
           ],
         );
       });
@@ -27,7 +29,9 @@ Column smallPanelSeperator() {
   return Column(
     children: [
       const SizedBox(height: 40.0),
-      Divider(endIndent: 150.0,),
+      Divider(
+        endIndent: 150.0,
+      ),
       const SizedBox(
         height: 40.0,
       )

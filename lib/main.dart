@@ -1,10 +1,9 @@
-import 'package:uresume/model/dimensions.dart';
-import 'package:uresume/view/responsive_views/DesktopBody.dart';
-import 'package:uresume/view/responsive_views/TabletBody.dart';
-import 'package:uresume/view/responsive_views/MobileBody.dart';
-import 'package:uresume/view/widgets/ResponsiveLayoutBuilder.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:uresume/model/dimensions.dart';
+import 'package:uresume/view/responsive_views/MobileBody.dart';
+import 'package:uresume/view/responsive_views/TabletBody.dart';
+import 'package:uresume/view/widgets/ResponsiveLayoutBuilder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,8 +27,8 @@ class MyApp extends StatelessWidget {
                       image: DecorationImage(
                           image: AssetImage('background.png'),
                           fit: BoxFit.cover)),
-                  child: ResponsiveLayout(const MobileBody(),
-                      const DesktopBody(), const TabletBody()))),
+                  child: ResponsiveLayout(
+                      const MobileBody(), const TabletBody()))),
         ));
   }
 }
