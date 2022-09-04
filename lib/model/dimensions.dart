@@ -1,4 +1,3 @@
-import 'package:faker/faker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -11,7 +10,6 @@ const double maxMobileHeaderSize = 650.0;
 const double infoTextMediumSize = 1200.0;
 const double infoTextLargerSize = 1750.0;
 const double tabletAspectRatio = 4 / 1;
-const double desktopAspectRatio = 5 / 1;
 const double maxiMobileAspectRatio = 10 / 7;
 const double mobileAspectRatio = 10 / 9;
 const double miniMobileAspectRatio = 10 / 15;
@@ -26,12 +24,6 @@ const Map<String, double> tabletBodyPaddingMap = {
   "right": 45.0,
   "top": 0.0,
   "bottom": 20.0
-};
-const Map<String, double> desktopBodyPaddingMap = {
-  "left": 60.0,
-  "right": 60.0,
-  "top": 0.0,
-  "bottom": 0.0
 };
 
 const List<Map<String, String>> resumeItems = [
@@ -59,21 +51,31 @@ Map<String, IconData> skillItems = {
 };
 
 Map<String, dynamic> infoItems = {
-  "Address": {"text": "TR - ANKARA", "icon": FontAwesomeIcons.house,
-    'uri':{'https': 'goo.gl/maps/DyxELEpRQkyEmNvz8'}
+  "Address": {
+    "text": "TR - ANKARA",
+    "icon": FontAwesomeIcons.house,
+    'uri': {'https': 'goo.gl/maps/DyxELEpRQkyEmNvz8'}
   },
   "Phone Number": {
     "text": "+90 507 329 0916",
     "icon": FontAwesomeIcons.mobileScreenButton,
-'uri':{'tel': "+905073290916"}
+    'uri': {'tel': "+905073290916"}
   },
   "Email Address": {
     "text": "cantalay0@gmail.com",
     "icon": FontAwesomeIcons.envelope,
-'uri':{'mailto':'cantalay0@gmail.com'}
+    'uri': {'mailto': 'cantalay0@gmail.com'}
   },
-  "Linkedin": {"text": "@cantalay", "icon": FontAwesomeIcons.linkedin, 'uri':{'https':'www.linkedin.com/in/can-talay-45110659/'}},
-  "Github": {"text": "@cantalay", "icon": FontAwesomeIcons.github, 'uri':{'https':'www.github.com/cantalay'}},
+  "Linkedin": {
+    "text": "@cantalay",
+    "icon": FontAwesomeIcons.linkedin,
+    'uri': {'https': 'www.linkedin.com/in/can-talay-45110659/'}
+  },
+  "Github": {
+    "text": "@cantalay",
+    "icon": FontAwesomeIcons.github,
+    'uri': {'https': 'www.github.com/cantalay'}
+  },
   "Gitlab": {"text": "@cantalay", "icon": FontAwesomeIcons.gitlab},
   "Gender": {"text": "Male", "icon": FontAwesomeIcons.mars},
 };
@@ -83,7 +85,8 @@ const Map<String, String> userInfo = {
   "surname": "Talay",
   "title": "FULLSTACK SOFTWARE developer"
 };
-String profileDescription = "The passion for software development started in 2008 when he was still a high school student. "
+String profileDescription =
+    "The passion for software development started in 2008 when he was still a high school student. "
     "It started with JavaScript (mostly by playing video games) and he continue to do this passion in professional business life. "
     "Dynamic and creative software developer with over 2 years of experience in producing robust code for high-volume companies.";
 List userExperience = [
@@ -92,7 +95,8 @@ List userExperience = [
     "position": "Fullstack Software Developer",
     "startYear": 2020,
     "endYear": "Current",
-    "detail": "Experience in cybersecurity projects like iTarian, Socaap, Dragon Platform and Enterprise Platform as a fullstack software engineer. ",
+    "detail":
+        "Experience in cybersecurity projects like iTarian, Socaap, Dragon Platform and Enterprise Platform as a fullstack software engineer. ",
     "knowledges": [
       "AWS Lambda Functions and Serverless Architecture",
       "Google Cloud Platform, Cloud Build, Google Storage",
@@ -118,16 +122,24 @@ List userExperience = [
     "position": "Development Intern",
     "startYear": 2018,
     "endYear": 2018,
-    "detail": "Experience in simulation and statistical analysis of furniture testing machines.",
-    "knowledges": ["Python, Numpy and Scipy for Statistical Analysis", "Decreased furniture testing machines with time study."]
+    "detail":
+        "Experience in simulation and statistical analysis of furniture testing machines.",
+    "knowledges": [
+      "Python, Numpy and Scipy for Statistical Analysis",
+      "Decreased furniture testing machines with time study."
+    ]
   },
   {
     "name": "Turkish Standards Institution",
     "position": "Production Management Intern",
     "startYear": 2018,
     "endYear": 2018,
-    "detail": "Experience in simulation and statistical analysis of production line.",
-    "knowledges": ["Python, Numpy and Scipy for Statistical Analysis","Decreased troduction line productivity with time study."]
+    "detail":
+        "Experience in simulation and statistical analysis of production line.",
+    "knowledges": [
+      "Python, Numpy and Scipy for Statistical Analysis",
+      "Decreased troduction line productivity with time study."
+    ]
   }
 ];
 
@@ -151,20 +163,27 @@ var userDetailMap = [
       {
         "title": "professional",
         "subtitle": "Cloud Knowledge",
-        "detail": ["AWS Lambda Functions",
+        "detail": [
+          "AWS Lambda Functions",
           "AWS S3",
           "AWS CloudFormation",
           "AWS CloudFront",
           "AWS API Gateway",
           "Google Cloud Platform",
           "Google Cloud Storage",
-          "Google Cloud Build"]
-      },{
+          "Google Cloud Build"
+        ]
+      },
+      {
         "title": "technical",
         "subtitle": "Development Knowledge",
-        "detail": ["Python and Web Frameworks","Java Spring Boot",
-          "NodeJS","Flutter Mobile and Web Development",
-          "VueJS"]
+        "detail": [
+          "Python and Web Frameworks",
+          "Java Spring Boot",
+          "NodeJS",
+          "Flutter Mobile and Web Development",
+          "VueJS"
+        ]
       },
     ],
   },
