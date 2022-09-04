@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:uresume/model/dimensions.dart';
@@ -31,16 +33,19 @@ class TabletBody extends StatelessWidget {
                 title: Container(
                   child: headerTitle(context, 40.0, 15.0),
                 ),
-                background: Padding(
-                  padding: EdgeInsets.only(
-                    right: tabletBodyPaddingMap["right"]!,
+                background: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                  child: Padding(
+                padding: EdgeInsets.only(
+                  right: tabletBodyPaddingMap["right"]!,
+                ),
+                child: Row(children: [
+                  const Expanded(
+                    child: SizedBox(),
                   ),
-                  child: Row(children: [
-                    const Expanded(
-                      child: SizedBox(),
-                    ),
-                    Expanded(child: headerInfoItems(context))
-                  ]),
+                  Expanded(child: headerInfoItems(context))
+                ]),
+                  ),
                 ),
               ),
             ),

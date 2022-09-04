@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           body: SafeArea(
               child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('background.png'),
+                          image: AssetImage('assets/background.png'),
                           fit: BoxFit.cover)),
                   child: ResponsiveLayout(
                       const MobileBody(), const TabletBody()))),
