@@ -27,12 +27,12 @@ Widget smallPanelElements() {
 
 Column smallPanelSeperator() {
   return Column(
-    children: [
-      const SizedBox(height: 40.0),
+    children: const [
+      SizedBox(height: 40.0),
       Divider(
         endIndent: 150.0,
       ),
-      const SizedBox(
+      SizedBox(
         height: 40.0,
       )
     ],
@@ -77,7 +77,7 @@ Text panelTitle(text) {
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w600, fontSize: 20.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w600, fontSize: 20.0, letterSpacing: 2.0),
   );
 }
 
@@ -87,7 +87,7 @@ Text panelSubTitle(text) {
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w700, fontSize: 12.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w700, fontSize: 12.0, letterSpacing: 1.8),
   );
 }
 
@@ -96,7 +96,7 @@ Text panelText(text) {
     text,
     overflow: TextOverflow.visible,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w500, fontSize: 12.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w500, fontSize: 12.0, letterSpacing: 1.5),
   );
 }
 
@@ -106,6 +106,6 @@ Text panelSliderTitle(text) {
     overflow: TextOverflow.visible,
     textAlign: TextAlign.start,
     style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w500, fontSize: 25.0, letterSpacing: 2.1),
+        fontWeight: FontWeight.w500, fontSize: 25.0, letterSpacing: 1.5),
   );
 }
