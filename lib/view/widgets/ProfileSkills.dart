@@ -1,42 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:uresume/model/dimensions.dart';
 
-import 'SmallPanelElements.dart';
+import 'PanelTexts.dart';
+
+class ProfileSkills extends StatelessWidget {
+  const ProfileSkills({
+    Key? key,
+    required this.paddingMap,
+  }) : super(key: key);
+
+  final Map<String, double> paddingMap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+          top: paddingMap['top']!,
+          right: paddingMap['right']!,
+          left: paddingMap['left']!,
+          bottom: paddingMap['bottom']!),
+      child: ListView(
+        shrinkWrap: true,
+        controller: ScrollController(),
+        children: [
+          profileItem(),
+          largePanelSeperator(),
+          panelTitle("experience".toUpperCase()),
+          const SizedBox(
+            height: 20.0,
+          ),
+          largePanelElementList(),
+        ],
+      ),
+    );
+  }
+}
 
 Column profileItem() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       panelTitle("profile".toUpperCase()),
-      SizedBox(
+      const SizedBox(
         height: 20.0,
       ),
       panelText(profileDescription)
     ],
-  );
-}
-
-Widget largePanelElement(Map<String, double> paddingMap) {
-  return Padding(
-    padding: EdgeInsets.only(
-        top: paddingMap['top']!,
-        right: paddingMap['right']!,
-        left: paddingMap['left']!,
-        bottom: paddingMap['bottom']!),
-    child: ListView(
-      shrinkWrap: true,
-      controller: ScrollController(),
-      children: [
-        profileItem(),
-        largePanelSeperator(),
-        panelTitle("experience".toUpperCase()),
-        SizedBox(
-          height: 20.0,
-        ),
-        largePanelElementList(),
-      ],
-    ),
   );
 }
 
@@ -66,30 +75,26 @@ ListView largePanelElementList() {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             panelSubTitle(userExperience[index]['name']),
-            SizedBox(
+            const SizedBox(
               height: 5.0,
             ),
             Row(children: [
-              panelSubTitleText(userExperience[index]['position']),
-              SizedBox(
+              panelSubTitle(userExperience[index]['position']),
+              const SizedBox(
                 width: 5.0,
               ),
               MediaQuery.of(context).size.width > 900
-                  ? panelSubTitleText(
-                      userExperience[index]['startYear'].toString() +
-                          " - " +
-                          userExperience[index]['endYear'].toString())
-                  : SizedBox()
+                  ? panelSubTitle(
+                      "${userExperience[index]['startYear']} - ${userExperience[index]['endYear']}")
+                  : const SizedBox()
             ]),
             const SizedBox(
               height: 5.0,
             ),
             MediaQuery.of(context).size.width < 900
-                ? panelSubTitleText(
-                    userExperience[index]['startYear'].toString() +
-                        " - " +
-                        userExperience[index]['endYear'].toString())
-                : SizedBox(),
+                ? panelSubTitle(
+                    "${userExperience[index]['startYear']} - ${userExperience[index]['endYear']}")
+                : const SizedBox(),
             const SizedBox(
               height: 8.0,
             ),
@@ -103,7 +108,7 @@ ListView largePanelElementList() {
               shrinkWrap: true,
               itemBuilder: (context, innerIndex) {
                 return panelText(
-                    "• " + userExperience[index]['knowledges'][innerIndex]);
+                    " • ${userExperience[index]['knowledges'][innerIndex]}");
               },
               separatorBuilder: (context, index) => const SizedBox(
                 height: 2.0,
@@ -112,13 +117,4 @@ ListView largePanelElementList() {
           ],
         );
       });
-}
-
-Text panelSubTitleText(text) {
-  return Text(
-    text.toString().toUpperCase(),
-    overflow: TextOverflow.fade,
-    style: GoogleFonts.montserrat(
-        fontWeight: FontWeight.w500, fontSize: 12.0, letterSpacing: 2.1),
-  );
 }

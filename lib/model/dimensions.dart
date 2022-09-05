@@ -4,22 +4,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //// set the common dimensions
 const String pageTitle = "Can Talay";
 const double mobileWidth = 900.0;
-const double tabletWidth = 1300.0;
 const double maxHeaderSize = 1000.0;
-const double maxMobileHeaderSize = 650.0;
-const double infoTextMediumSize = 1200.0;
-const double infoTextLargerSize = 1750.0;
-const double tabletAspectRatio = 4 / 1;
-const double maxiMobileAspectRatio = 10 / 7;
-const double mobileAspectRatio = 10 / 9;
-const double miniMobileAspectRatio = 10 / 15;
+const int infoItemCrossAxisCount = 2;
 const Map<String, double> mobileBodyPaddingMap = {
   "left": 25.0,
   "right": 25.0,
   "top": 0.0,
   "bottom": 0.0
 };
-const Map<String, double> tabletBodyPaddingMap = {
+const Map<String, double> webPaddingMap = {
   "left": 45.0,
   "right": 45.0,
   "top": 0.0,

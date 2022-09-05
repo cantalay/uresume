@@ -1,71 +1,17 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:uresume/model/dimensions.dart';
-import 'package:uresume/view/widgets/HeaderTitle.dart';
-import 'package:uresume/view/widgets/SmallPanelElements.dart';
 
-import '../widgets/HeaderInfoItem.dart';
-import '../widgets/ProfileDescription.dart';
+import 'mobile/MobileHeader.dart';
+import 'mobile/MobileListView.dart';
 
 class MobileBody extends StatelessWidget {
   const MobileBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white70,
       body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            backgroundColor: Color.fromRGBO(189, 224, 254, 0.8),
-            expandedHeight: 180.0,
-            toolbarHeight: 150.0,
-            elevation: 0,
-            floating: true,
-            pinned: false,
-            flexibleSpace: FlexibleSpaceBar(
-              background: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                child: Container(
-                  color: Colors.black.withOpacity(0),
-                ),
-              ),
-              titlePadding: EdgeInsets.only(
-                  left: mobileBodyPaddingMap['left']!,
-                  right: mobileBodyPaddingMap['right']!),
-              expandedTitleScale: 1,
-              title: headerTitle(context, 35.0, 12.0),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: ListView(shrinkWrap: true, primary: false, children: [
-              SizedBox(
-                height: 20.0,
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: mobileBodyPaddingMap['left']!,
-                    right: mobileBodyPaddingMap['right']!,
-                    top: mobileBodyPaddingMap['top']!,
-                    bottom: mobileBodyPaddingMap['bottom']!),
-                child: headerInfoItems(context),
-              ),
-              smallPanelSeperator(),
-              largePanelElement(mobileBodyPaddingMap),
-              smallPanelSeperator(),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: mobileBodyPaddingMap['left']!,
-                    right: mobileBodyPaddingMap['right']!,
-                    top: mobileBodyPaddingMap['top']!,
-                    bottom: mobileBodyPaddingMap['bottom']!),
-                child: smallPanelElements(),
-              ),
-              smallPanelSeperator(),
-            ]),
-          )
-        ],
+        slivers: [MobileHeader(), MobileListView()],
       ),
     );
   }
